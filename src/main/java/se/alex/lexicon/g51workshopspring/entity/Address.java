@@ -4,15 +4,20 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
-@Getter
 @Entity
 @Table(name = "Details")
-public class AppUser {
+@Setter
+@Getter
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String username;
+    private String email;
+
+    private String name;
+
+    @OneToOne(mappedBy = "details", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Student appUser;
 }
