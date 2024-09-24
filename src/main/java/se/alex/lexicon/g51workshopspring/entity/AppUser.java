@@ -5,9 +5,7 @@ package se.alex.lexicon.g51workshopspring.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDate;
-import se.alex.lexicon.g51workshopspring.entity.Details;
 @Entity
 @Table(name = "AppUser")
 @Getter

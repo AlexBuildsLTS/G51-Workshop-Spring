@@ -3,6 +3,7 @@ package se.alex.lexicon.g51workshopspring.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.Set;
 
 @Entity
 @Table(name = "Student")
@@ -19,8 +20,15 @@ public class Student {
     private String firstName;
     private String lastName;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id", referencedColumnName = "id") // This references the Address entity
+    @Column(nullable = false)
+    private Integer age;
 
-    private Address address; // Owning side of the one-to-one relationship with Address
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id", referencedColumnName = "id") // Reference to Address entity
+    private Address address; // One-to-one relationship with Address
+
+    @ManyToMany(mappedBy = "students")
+    private Set<Course> courses;
+
 }

@@ -3,7 +3,6 @@ package se.alex.lexicon.g51workshopspring.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Set;
 
 @Entity
@@ -19,10 +18,8 @@ public class Course {
     private String courseName;
 
     @ManyToMany
-    @JoinTable(
-            name = "student_course",
+    @JoinTable(name = "student_course",
             joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "student_id")
-    )
-    private Set<Student> students; // ManyToMany relationship with Student
+            inverseJoinColumns = @JoinColumn(name = "student_id"))
+    private Set<Student> students;
 }
