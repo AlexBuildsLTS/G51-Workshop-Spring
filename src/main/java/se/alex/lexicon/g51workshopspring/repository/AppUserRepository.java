@@ -8,12 +8,12 @@ import java.util.List;
 
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 
-    // Find user by username
+
     AppUser findByUsername(String username);
 
-    // Find users by registration date between two specific dates
+
     List<AppUser> findByRegDateBetween(LocalDate startDate, LocalDate endDate);
 
-    // Find user by Details id (relationship reference)
+
     AppUser findByDetails_Id(Long id);
 }

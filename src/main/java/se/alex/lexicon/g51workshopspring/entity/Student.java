@@ -17,10 +17,10 @@ public class Student {
     private String username;
 
     private String firstName;
-
     private String lastName;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
+    @JoinColumn(name = "address_id", referencedColumnName = "id") // This references the Address entity
+
+    private Address address; // Owning side of the one-to-one relationship with Address
 }

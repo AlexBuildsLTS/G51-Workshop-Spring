@@ -15,7 +15,7 @@
     <description>G51-Workshop-Spring</description>
 
     <properties>
-        <java.version>17</java.version> <!-- Updated Java version to LTS -->
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>

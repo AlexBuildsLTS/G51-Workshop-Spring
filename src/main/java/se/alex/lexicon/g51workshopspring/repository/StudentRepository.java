@@ -10,6 +10,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findByLastName(String lastName);
     List<Student> findByFirstNameAndLastName(String firstName, String lastName);
 
-    // This will work only if there's an 'age' field in the Student entity
+
     List<Student> findByAgeGreaterThan(int age);
 }
