@@ -28,11 +28,11 @@ public class AppUser {
     @JoinColumn(name = "details_id", referencedColumnName = "id")
     private Details details;
 
-    // Default constructor
+
     public AppUser() {
     }
 
-    // Parameterized constructor
+
     public AppUser(String username, String password, LocalDate regDate, Details details) {
         this.username = username;
         this.password = password;

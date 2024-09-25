@@ -26,7 +26,7 @@ public class Student {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", referencedColumnName = "id") // Reference to Address entity
-    private Address address; // One-to-one relationship with Address
+    private Address address;
 
     @ManyToMany(mappedBy = "students")
     private Set<Course> courses;
