@@ -6,10 +6,10 @@ import lombok.Setter;
 import java.util.Set;
 
 @Entity
-@Table(name = "Student")
+@Table(name = "student")
 @Getter
 @Setter
-public class Student {
+public class student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,6 +29,6 @@ public class Student {
     private Address address;
 
     @ManyToMany(mappedBy = "students")
-    private Set<Course> courses;
+    private Set<course> courses;
 
 }

@@ -6,10 +6,10 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "AppUser")
+@Table(name = "app_user")
 @Getter
 @Setter
-public class AppUser {
+public class appUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,14 +26,14 @@ public class AppUser {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "details_id", referencedColumnName = "id")
-    private Details details;
+    private se.alex.lexicon.g51workshopspring.entity.details details;
 
 
-    public AppUser() {
+    public appUser() {
     }
 
 
-    public AppUser(String username, String password, LocalDate regDate, Details details) {
+    public appUser(String username, String password, LocalDate regDate, se.alex.lexicon.g51workshopspring.entity.details details) {
         this.username = username;
         this.password = password;
         this.regDate = regDate;

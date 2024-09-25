@@ -6,10 +6,10 @@ import lombok.Setter;
 import java.util.Set;
 
 @Entity
-@Table(name = "Course")
+@Table(name = "course")
 @Getter
 @Setter
-public class Course {
+public class course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,5 +21,5 @@ public class Course {
     @JoinTable(name = "student_course",
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
-    private Set<Student> students;
+    private Set<student> students;
 }

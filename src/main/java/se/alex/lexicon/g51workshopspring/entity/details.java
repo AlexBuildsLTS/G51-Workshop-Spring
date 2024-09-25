@@ -6,10 +6,10 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Details")
+@Table(name = "details")
 @Getter
 @Setter
-public class Details {
+public class details {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,11 +25,11 @@ public class Details {
     private LocalDate birthDate;
 
     // Default constructor
-    public Details() {
+    public details() {
     }
 
     // Parameterized constructor matching the DataLoader usage
-    public Details(String email, String name, LocalDate birthDate) {
+    public details(String email, String name, LocalDate birthDate) {
         this.email = email;
         this.name = name;
         this.birthDate = birthDate;
