@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class Details {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,4 +23,15 @@ public class Details {
 
     @Column(nullable = false)
     private LocalDate birthDate;
+
+    // Default constructor
+    public Details() {
+    }
+
+    // Parameterized constructor matching the DataLoader usage
+    public Details(String email, String name, LocalDate birthDate) {
+        this.email = email;
+        this.name = name;
+        this.birthDate = birthDate;
+    }
 }

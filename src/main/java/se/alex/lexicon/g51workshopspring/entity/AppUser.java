@@ -1,16 +1,16 @@
 package se.alex.lexicon.g51workshopspring.entity;
 
-
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDate;
+
 @Entity
 @Table(name = "AppUser")
 @Getter
 @Setter
 public class AppUser {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,9 +22,21 @@ public class AppUser {
     private String password;
 
     @Column(nullable = false)
-    private LocalDate regDate; // Registration date
+    private LocalDate regDate;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "details_id", referencedColumnName = "id") // Reference to Details entity
-    private Details details; // One-to-one relationship with Details entity
+    @JoinColumn(name = "details_id", referencedColumnName = "id")
+    private Details details;
+
+    // Default constructor
+    public AppUser() {
+    }
+
+    // Parameterized constructor
+    public AppUser(String username, String password, LocalDate regDate, Details details) {
+        this.username = username;
+        this.password = password;
+        this.regDate = regDate;
+        this.details = details;
+    }
 }
