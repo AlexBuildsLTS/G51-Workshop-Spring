@@ -24,7 +24,7 @@ public class Details {
     @Column(nullable = false)
     private LocalDate birthDate;
 
-    // Default constructor
+
     public Details() {
     }
 
