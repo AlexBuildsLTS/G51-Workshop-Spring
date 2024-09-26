@@ -9,7 +9,7 @@ import java.util.Set;
 @Table(name = "student")
 @Getter
 @Setter
-public class student {
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,6 +29,6 @@ public class student {
     private Address address;
 
     @ManyToMany(mappedBy = "students")
-    private Set<course> courses;
+    private Set<Course> courses;
 
 }

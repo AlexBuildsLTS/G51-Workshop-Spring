@@ -9,7 +9,7 @@ import java.util.Set;
 @Table(name = "course")
 @Getter
 @Setter
-public class course {
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,5 +21,5 @@ public class course {
     @JoinTable(name = "student_course",
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
-    private Set<student> students;
+    private Set<Student> students;
 }

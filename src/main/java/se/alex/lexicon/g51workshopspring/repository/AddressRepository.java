@@ -5,7 +5,7 @@ import se.alex.lexicon.g51workshopspring.entity.Address;
 
 import java.util.List;
 
-public interface addressRepository extends JpaRepository<Address, Long> {
+public interface AddressRepository extends JpaRepository<Address, Long> {
 
 
     List<Address> findByStreet(String street);

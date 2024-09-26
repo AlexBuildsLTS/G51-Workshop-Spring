@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Table(name = "app_user")
 @Getter
 @Setter
-public class appUser {
+public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,14 +26,14 @@ public class appUser {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "details_id", referencedColumnName = "id")
-    private se.alex.lexicon.g51workshopspring.entity.details details;
+    private Details details;
 
 
-    public appUser() {
+    public AppUser() {
     }
 
 
-    public appUser(String username, String password, LocalDate regDate, se.alex.lexicon.g51workshopspring.entity.details details) {
+    public AppUser(String username, String password, LocalDate regDate, Details details) {
         this.username = username;
         this.password = password;
         this.regDate = regDate;

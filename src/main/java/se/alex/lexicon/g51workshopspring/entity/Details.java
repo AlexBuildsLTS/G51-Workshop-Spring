@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Table(name = "details")
 @Getter
 @Setter
-public class details {
+public class Details {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,11 +25,11 @@ public class details {
     private LocalDate birthDate;
 
     // Default constructor
-    public details() {
+    public Details() {
     }
 
     // Parameterized constructor matching the DataLoader usage
-    public details(String email, String name, LocalDate birthDate) {
+    public Details(String email, String name, LocalDate birthDate) {
         this.email = email;
         this.name = name;
         this.birthDate = birthDate;
