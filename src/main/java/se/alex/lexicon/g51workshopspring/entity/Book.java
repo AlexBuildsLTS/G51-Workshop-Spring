@@ -3,7 +3,6 @@ package se.alex.lexicon.g51workshopspring.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -17,19 +16,19 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String title;
 
     @Column(nullable = false)
-    private String author;
+    private String title;
 
     @Column(nullable = false)
     private String isbn;
 
     @Column(nullable = false)
-    private LocalDate publicationDate;
+    private String authorName;
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<BookLoan> bookLoans;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id")
+    private Author author;
+
 
 }
