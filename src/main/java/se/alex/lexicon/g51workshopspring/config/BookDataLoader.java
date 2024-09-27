@@ -19,33 +19,29 @@ public class BookDataLoader implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
-
+    public void run(String... args) {
+        // Create Author instances
         Author author1 = new Author();
-        author1.setFirstName("Frank");
-        author1.setLastName("Herbert");
+        author1.setFirstName("J.K.");
+        author1.setLastName("Rowling");
+        authorRepository.save(author1);
 
         Author author2 = new Author();
         author2.setFirstName("George");
         author2.setLastName("Orwell");
-
-        // Save Authors
-        authorRepository.save(author1);
         authorRepository.save(author2);
 
-        // Create Book instances
+        // Create Book instances and assign authors
         Book book1 = new Book();
-        book1.setTitle("Dune");
-        book1.setIsbn("123456789");
+        book1.setTitle("Harry Potter");
+        book1.setIsbn("978-0747532743");
         book1.setAuthor(author1);
+        bookRepository.save(book1);
 
         Book book2 = new Book();
         book2.setTitle("1984");
-        book2.setIsbn("987654321");
+        book2.setIsbn("978-0451524935");
         book2.setAuthor(author2);
-
-
-        bookRepository.save(book1);
         bookRepository.save(book2);
     }
 }

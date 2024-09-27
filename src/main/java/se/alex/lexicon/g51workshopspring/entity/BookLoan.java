@@ -1,31 +1,46 @@
 package se.alex.lexicon.g51workshopspring.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Setter
+@Getter
 @Entity
 public class BookLoan {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private AppUser borrower;
+    private AppUser user;
 
     @ManyToOne
     @JoinColumn(name = "book_id", nullable = false)
     private Book book;
 
-    @Column(nullable = false)
     private LocalDate borrowDate;
 
-    @Column(nullable = false)
     private LocalDate dueDate;
 
     private boolean returned;
 
+    // Constructors, Getters, and Setters
+
+    public BookLoan() {}
+
+    public BookLoan(AppUser user, Book book, LocalDate borrowDate, LocalDate dueDate) {
+        this.user = user;
+        this.book = book;
+        this.borrowDate = borrowDate;
+        this.dueDate = dueDate;
+        this.returned = false;
+    }
+
+    // Getters and Setters
 
 }
-

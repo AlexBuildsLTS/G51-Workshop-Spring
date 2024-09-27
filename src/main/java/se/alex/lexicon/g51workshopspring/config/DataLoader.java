@@ -4,30 +4,29 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import se.alex.lexicon.g51workshopspring.entity.AppUser;
-import se.alex.lexicon.g51workshopspring.entity.Details;
 import se.alex.lexicon.g51workshopspring.repository.AppUserRepository;
-import se.alex.lexicon.g51workshopspring.repository.DetailsRepository;
+
 import java.time.LocalDate;
 
 @Configuration
 public class DataLoader {
 
     @Bean
-    CommandLineRunner loadData(AppUserRepository appUserRepository, DetailsRepository detailsRepository) {
+    CommandLineRunner loadData(AppUserRepository appUserRepository) {
         return args -> {
 
-            Details details1 = new Details("alex.lex@example.com", "Alex Y", LocalDate.of(1994, 1, 1));
-            Details details2 = new Details("sandra.lex@example.com", "Sandra Y", LocalDate.of(1992, 2, 22));
-
-
-            detailsRepository.save(details1);
-            detailsRepository.save(details2);
-
-
+            // Create sample AppUser instances
             AppUser user1 = new AppUser();
+            user1.setUsername("alexyoussef");
+            user1.setPassword("password123");
+            user1.setRegDate(LocalDate.of(2020, 1, 1));
+
             AppUser user2 = new AppUser();
+            user2.setUsername("sanna");
+            user2.setPassword("password456");
+            user2.setRegDate(LocalDate.of(2021, 2, 2));
 
-
+            // Save AppUser instances
             appUserRepository.save(user1);
             appUserRepository.save(user2);
         };

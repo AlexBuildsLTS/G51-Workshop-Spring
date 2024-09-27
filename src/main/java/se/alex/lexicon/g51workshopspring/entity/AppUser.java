@@ -3,40 +3,44 @@ package se.alex.lexicon.g51workshopspring.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.time.LocalDate;
 
-@Entity
-@Table(name = "app_user")
-@Getter
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Setter
+@Getter
+@Entity
 public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private LocalDate regDate;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<BookLoan> bookLoans = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "details_id", referencedColumnName = "id")
-    private Details details;
+    // Constructors, Getters, and Setters
 
+    public AppUser() {}
 
-    public AppUser() {
-    }
-
-
-    public AppUser(String username, String password, LocalDate regDate, Details details) {
+    public AppUser(String username, String password) {
         this.username = username;
         this.password = password;
-        this.regDate = regDate;
-        this.details = details;
+    }
+
+    // Getters and Setters
+
+    // Helper method to add book loan
+    public void addBookLoan(BookLoan bookLoan) {
+        bookLoan.setUser(this);
+        this.bookLoans.add(bookLoan);
+    }
+
+    public void setRegDate(LocalDate of) {
     }
 }
