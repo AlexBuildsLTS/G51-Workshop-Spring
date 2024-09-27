@@ -29,7 +29,7 @@ public class BookLoan {
 
     private boolean returned;
 
-    // Constructors, Getters, and Setters
+
 
     public BookLoan() {}
 
@@ -41,6 +41,6 @@ public class BookLoan {
         this.returned = false;
     }
 
-    // Getters and Setters
+
 
 }

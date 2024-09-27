@@ -20,7 +20,7 @@ public class BookDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        // Create Author instances
+
         Author author1 = new Author();
         author1.setFirstName("J.K.");
         author1.setLastName("Rowling");
@@ -31,7 +31,7 @@ public class BookDataLoader implements CommandLineRunner {
         author2.setLastName("Orwell");
         authorRepository.save(author2);
 
-        // Create Book instances and assign authors
+
         Book book1 = new Book();
         book1.setTitle("Harry Potter");
         book1.setIsbn("978-0747532743");

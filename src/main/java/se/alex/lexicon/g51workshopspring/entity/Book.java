@@ -27,7 +27,7 @@ public class Book {
 
     private boolean available = true;
 
-    // Constructors, Getters, and Setters
+
 
     public Book() {}
 
@@ -37,6 +37,6 @@ public class Book {
         this.publicationDate = publicationDate;
     }
 
-    // Getters and Setters
+
 
 }

@@ -15,7 +15,7 @@ public class DataLoader {
     CommandLineRunner loadData(AppUserRepository appUserRepository) {
         return args -> {
 
-            // Create sample AppUser instances
+
             AppUser user1 = new AppUser();
             user1.setUsername("alexyoussef");
             user1.setPassword("password123");
@@ -26,7 +26,7 @@ public class DataLoader {
             user2.setPassword("password456");
             user2.setRegDate(LocalDate.of(2021, 2, 2));
 
-            // Save AppUser instances
+
             appUserRepository.save(user1);
             appUserRepository.save(user2);
         };

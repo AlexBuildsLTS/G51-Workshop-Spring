@@ -25,8 +25,7 @@ public class G51WorkshopSpringApplication {
 
     /**
      * This CommandLineRunner bean will be executed on startup and is useful for
-     * initial data seeding, especially during development.
-     * The method below is activated only when the "dev" profile is active.
+     * initial data seeding, especially during development
      */
     @Bean
     @Profile("dev")
@@ -43,7 +42,7 @@ public class G51WorkshopSpringApplication {
             author2.setLastName("Orwell");
             authorRepository.save(author2);
 
-            // Create and save books
+
             Book book1 = new Book();
             book1.setTitle("Harry Potter and the Philosopher's Stone");
             book1.setIsbn("978-0747532699");
