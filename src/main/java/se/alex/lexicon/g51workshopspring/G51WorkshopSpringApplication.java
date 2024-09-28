@@ -23,6 +23,9 @@ public class G51WorkshopSpringApplication {
         SpringApplication.run(G51WorkshopSpringApplication.class, args);
     }
 
+    public G51WorkshopSpringApplication() {
+    }
+
     /**
      * This CommandLineRunner bean will be executed on startup and is useful for
      * initial data seeding, especially during development
@@ -32,16 +35,11 @@ public class G51WorkshopSpringApplication {
     public CommandLineRunner dataLoader(AuthorRepository authorRepository, BookRepository bookRepository) {
         return args -> {
 
-            Author author1 = new Author();
-            author1.setFirstName("J.K.");
-            author1.setLastName("Rowling");
+            Author author1 = new Author("J.K. Rowling");
             authorRepository.save(author1);
 
-            Author author2 = new Author();
-            author2.setFirstName("George");
-            author2.setLastName("Orwell");
+            Author author2 = new Author("George Orwell");
             authorRepository.save(author2);
-
 
             Book book1 = new Book();
             book1.setTitle("Harry Potter and the Philosopher's Stone");
@@ -57,7 +55,7 @@ public class G51WorkshopSpringApplication {
             book2.setPublicationDate(LocalDate.of(1949, 6, 8));
             bookRepository.save(book2);
 
-            log.info("Sample data has been inserted into the database.");
+            log.info("Data inserted into the Database");
         };
     }
 }

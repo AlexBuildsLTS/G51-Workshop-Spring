@@ -4,27 +4,27 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-@Setter
-@Getter
 @Entity
+@Table(name = "app_user")
+@Getter
+@Setter
 public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String username;
 
+    @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<BookLoan> bookLoans = new ArrayList<>();
-
-    // Constructors, Getters, and Setters
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<BookLoan> loans = new HashSet<>();
 
     public AppUser() {}
 
@@ -33,14 +33,11 @@ public class AppUser {
         this.password = password;
     }
 
-    // Getters and Setters
-
-    // Helper method to add book loan
-    public void addBookLoan(BookLoan bookLoan) {
-        bookLoan.setUser(this);
-        this.bookLoans.add(bookLoan);
-    }
-
-    public void setRegDate(LocalDate of) {
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                '}';
     }
 }
